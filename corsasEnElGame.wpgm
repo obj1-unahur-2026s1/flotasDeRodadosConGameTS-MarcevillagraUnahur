@@ -77,9 +77,9 @@ program corsasEnElGame {
   })
   
   // --- Lógica de Choques ---
-  game.onCollideDo(paredFuerte, { auto => paredFuerte.chocar() })
+  game.onCollideDo(paredFuerte, { auto => paredFuerte.chocar(auto) })
   
-  game.onCollideDo(paredMedia, { auto => paredMedia.chocar() })
+  game.onCollideDo(paredMedia, { auto => paredMedia.chocar(auto) })
   
   game.start()
 }

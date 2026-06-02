@@ -18,13 +18,23 @@ class ChevroletCorsa {
   
   // --- Game y Posiciones ---
   
+  var posicionAnterior = game.at(0,0)
+  
   method image() = color.image()
   
   method position() = position
   
   method position(nuevaPosicion) {
+    posicionAnterior = position
     position = nuevaPosicion
     posicionesVisitadas.add(nuevaPosicion)
+  }
+  
+  method deshacerMovimiento() {
+    position = posicionAnterior
+    if (!posicionesVisitadas.isEmpty()) {
+      posicionesVisitadas.remove(posicionesVisitadas.last())
+    }
   }
   
   method pasoPor(posicionBuscada) = posicionesVisitadas.contains(posicionBuscada)

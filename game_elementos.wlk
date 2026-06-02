@@ -1,7 +1,7 @@
 import wollok.game.*
 
 // ============================
-// DIRECCIONES (Etapa 5)
+// DIRECCIONES 
 // ============================
 
 object norte {
@@ -34,9 +34,10 @@ class Pared {
     return "paredLadrillos1.jpg"
   }
   
-  method chocar() {
+  method chocar(auto) {
     if (resistencia > 0) {
       resistencia -= 1
+      auto.deshacerMovimiento()
     }
     if (resistencia == 0) {
       game.removeVisual(self)
@@ -67,8 +68,7 @@ class RegionRectangular {
     )
   }
   
-  // union() retornaría una región, pero como la unión de dos rectángulos puede no ser rectangular,
-  // devolvemos una RegionCompuesta
+
   method union(otraRegion) = new RegionCompuesta(region1 = self, region2 = otraRegion)
 }
 
